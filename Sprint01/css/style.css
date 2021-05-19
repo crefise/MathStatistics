@@ -26,6 +26,7 @@ textarea {
     border: 1px black solid;
     margin: 5px;
     padding: 10px;
+
 }
 
 table {
@@ -33,6 +34,7 @@ table {
     transform: translateX(-50%);
     background: linear-gradient(to left,rgb(197, 189, 155),rgb(156, 140, 140));
     border-spacing: 0;
+    margin-top: 50px;
 }
 td {
     border: 1px black solid;
@@ -41,3 +43,27 @@ td {
     font-size: 25px;
     text-align: center;
 }
+
+
+pre {
+    display: block;
+    text-align: left;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+}
+
+.task_03_result {
+    font-size: 25px;
+}
+
+.named_task01 {
+    font-size: 100px;
+}
+.named_task02 {
+    font-size: 100px;
+}
+.named_task03 {
+    font-size: 100px;
+}
+

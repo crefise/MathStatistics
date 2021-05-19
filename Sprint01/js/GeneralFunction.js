@@ -71,9 +71,9 @@ function del_repetitive_element(arr) {
 }
 
 
-function print_chart(x_arr,y_arr,id,  label,class_name, parent, mode) {
+function print_chart(x_arr,y_arr,id,  label,class_name, parent, mode, chart_mode) {
     let chart_div = document.createElement("div");
-    chart_div.innerHTML = '<canvas id="' + id +'" class = "'+ class_name +'" width="400" height="200"></canvas>';
+    chart_div.innerHTML = '<canvas id="' + id +'" class = "'+ class_name +'"></canvas>';
     
     
     if (mode == "id") {
@@ -92,6 +92,8 @@ function print_chart(x_arr,y_arr,id,  label,class_name, parent, mode) {
     //Chart.defaults.global.defaultFontFamily = "Lato";
    // Chart.defaults.global.defaultFontSize = 18;
 
+
+   if (chart_mode == 1) {
         var data_chart = {
         labels: x_arr,
         datasets: [{
@@ -118,7 +120,29 @@ function print_chart(x_arr,y_arr,id,  label,class_name, parent, mode) {
             options: chartOptions
         });
         charts.push(lineChart);
+    }
+    if (chart_mode == 2) {
+        var densityData = {
+            label: label,
+            data: x_arr,
+            backgroundColor: [
+                'rgba(0, 99, 132, 0.6)'
+            ]
+          };
+           
+          var barChart = new Chart(speedCanvas, {
+            type: 'bar',
+            data: {
+              labels: y_arr,
+              datasets: [densityData]
+            }
+          })
+          charts.push(barChart);
+    }
+
+
 }
+    
 
 function destroy_charts() {
     let size = charts.length;
@@ -127,3 +151,4 @@ function destroy_charts() {
         charts[i].destroy();
     }
 }
+

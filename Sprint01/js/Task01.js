@@ -1,17 +1,21 @@
 function task01 (set) {
-    console.log("Starting task1...");
-    console.log("set that took task01: " + set);
+    remove_elemelts_with_class("task01_result");
+    remove_elemelts_with_class("named_task01");
+    let VariesNear = new Array(set.length);
+    for (let i = 0; i < set.length; i++) {
+        create_html_element(let_arr[i], "div", "named_task01", "task_01", "id");
+        VariesNear[i] = get_varies_near(set[i].slice());
+        VariesNear[i].push(get_accumulated_frequencies(VariesNear[i][1]));
+        VariesNear[i].push(get_relative_frequencies(VariesNear[i][1], set[i].length))
+        VariesNear[i].push(get_accumulated_frequencies(VariesNear[i][3]));
+        VariesNear[i].push(set[i].length);
+        VariesNear[i].push(set[i].slice());
+        print_varies_near(VariesNear[i]);
+        
+    }
+
    
-    let VariesNear = get_varies_near(set.slice());
-    VariesNear.push(get_accumulated_frequencies(VariesNear[1]));
-    VariesNear.push(get_relative_frequencies(VariesNear[1], set.length))
-    VariesNear.push(get_accumulated_frequencies(VariesNear[3]));
-
-    remove_elemelts_with_class("task01_result")
-    print_varies_near(VariesNear);
-
-
-    console.log("Ending task1...");
+   
     return VariesNear;
 }
 function get_varies_near(set) {
@@ -116,3 +120,5 @@ function print_varies_near(VariesNear) {
 //function create_html_element(str, type ,class_name, parrent , mode)
     create_html_element(str, "div", "task01_result", "task_01", "id");
 }
+
+//2.71 -1.2 -0.99 0.88 4.27 -0.56 0.47 -0.37 1.54 4.26 1.47 -0.68 0.65 1.43 1.47 1.75 3.95 2.07 1.96 4.06 2.99 0.33 2.92 1.59 0.74 -0.1 0.96 0.54 0.99 1.54

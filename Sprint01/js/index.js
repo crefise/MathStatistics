@@ -20,7 +20,7 @@ function set_randomize_buttons (){
         for (let index = 0; index < randomize_buttons.length; index++) {
             randomize_buttons[index].onclick = () => {
                 let set_name = randomize_buttons[index].getAttribute("set");
-                let rand_arr = randomize_to_str(0,-10,5);
+                let rand_arr = randomize_to_str(0,0,15);
                 console.log(rand_arr);
 
                 let set_html = document.querySelector("input[set = '" + set_name + "']");
@@ -39,10 +39,18 @@ document.getElementById("calculate_button").onclick = () => {
     for (let i = 0; i < set_count; i++) {
         let new_set = document.querySelector("input[set = '" + let_arr[i] + "']").value.split(" ");
         new_set = del_empty_element_in_arr(new_set);
-        res_set = res_set.concat(new_set);
+        res_set.push(new_set);
+    }
+
+    for (let i = 0; i < res_set.length; i++) {
+        for (let z = 0; z < res_set[i].length; z++) {
+            res_set[i][z] = parseFloat(res_set[i][z]);
+        }
+
     }
 
     let res_task01 = task01(res_set);
     task02(res_task01);
+    task03(res_task01);
 
 }
