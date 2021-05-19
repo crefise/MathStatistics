@@ -52,5 +52,7 @@ document.getElementById("calculate_button").onclick = () => {
     let res_task01 = task01(res_set);
     task02(res_task01);
     task03(res_task01);
+    task04(res_task01);
+    task05(res_task01);
 
 }

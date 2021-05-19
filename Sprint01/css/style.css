@@ -56,6 +56,12 @@ pre {
 .task_03_result {
     font-size: 25px;
 }
+.task_04_result {
+    font-size: 25px;
+}
+.task_05_result {
+    font-size: 25px;
+}
 
 .named_task01 {
     font-size: 100px;
@@ -64,6 +70,14 @@ pre {
     font-size: 100px;
 }
 .named_task03 {
+    font-size: 100px;
+}
+
+.named_task04 {
+    font-size: 100px;
+}
+
+.named_task05 {
     font-size: 100px;
 }
 

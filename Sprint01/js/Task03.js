@@ -1,5 +1,5 @@
 function task03 (VariesNear) {
-    remove_elemelts_with_class("named_task030");
+    remove_elemelts_with_class("named_task03");
     remove_elemelts_with_class("task_03_result");
 
     for (let i = 0; i < VariesNear.length; i++) {
@@ -114,7 +114,7 @@ function print_coefficient_of_variation(varies_near) {
     create_html_element(str, "div" ,"task_03_result", "task_03" , "id");
 }
 function get_coefficient_of_variation(arr1,arr2,size) {
-    return get_sample_standard_deviation(arr1,arr2,size) / get_sample_average(arr1,arr2,size) * 100;
+    return get_sample_standard_deviation(arr1,arr2,size) / get_sample_average(arr1,arr2,size) ;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -122,20 +122,22 @@ function get_coefficient_of_variation(arr1,arr2,size) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function print_central_moments_3(varies_near) {
-    let str = "Central moments(3) - " + get_central_moments(varies_near[0],varies_near[1],varies_near[5],3);
+    console.log(varies_near);
+    let str = "Central moments(3) - " + get_central_moments(varies_near[0],varies_near[1],varies_near[5],3,varies_near[6]);
     create_html_element(str, "div" ,"task_03_result", "task_03" , "id");
 }
 function print_central_moments_4(varies_near) {
-    let str = "Central moments(4) - " + get_central_moments(varies_near[0],varies_near[1],varies_near[5],4);
+    let str = "Central moments(4) - " + get_central_moments(varies_near[0],varies_near[1],varies_near[5],4, varies_near[6]);
     create_html_element(str, "div" ,"task_03_result", "task_03" , "id");
 }
-function get_central_moments(arr1,arr2,size,pow) {
+function get_central_moments(arr1,arr2,size,pow,set) {
     let average = get_sample_average(arr1,arr2,size);
     let result = 0.0;
-    for (let i = 0; i < arr1.length; i++) {
-        result += Math.pow((arr1[i] - average), pow);
+    for (let i = 0; i < size; i++) {
+        
+        result += Math.pow((set[i] - average), pow);
     }
-    return result/size;
+    return result/(size-1);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -143,11 +145,11 @@ function get_central_moments(arr1,arr2,size,pow) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function print_asymmetry(varies_near) {
-    let str = "Asymetry - " + get_asymmetry(varies_near[0],varies_near[1],varies_near[5]);
+    let str = "Asymetry - " + get_asymmetry(varies_near[0],varies_near[1],varies_near[5],varies_near[6]);
     create_html_element(str, "div" ,"task_03_result", "task_03" , "id");
 }
-function get_asymmetry(arr1, arr2, size) {
-    return ((size * get_central_moments(arr1,arr2,size,3) )/((size-1)*(size-2)*Math.pow(get_sample_standard_deviation(arr1,arr2,size),3)));
+function get_asymmetry(arr1, arr2, size,set) {
+    return ((size * get_central_moments(arr1,arr2,size,3, set) )/((size-1)*(size-2)*Math.pow(get_sample_standard_deviation(arr1,arr2,size),3)));
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -155,11 +157,11 @@ function get_asymmetry(arr1, arr2, size) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function print_excess(varies_near) {
-    let str = "Excess - " + get_excess(varies_near[0],varies_near[1],varies_near[5]);
+    let str = "Excess - " + get_excess(varies_near[0],varies_near[1],varies_near[5],varies_near[6]);
     create_html_element(str, "div" ,"task_03_result", "task_03" , "id");
 }
-function get_excess(arr1, arr2, size) {
-    return ((size*(size+1)*get_central_moments(arr1,arr2,size,4) - 3 *  get_central_moments(arr1,arr2,size,2)*(size-1))/( (size-1)*(size-2)*(size-3)*Math.pow(get_sample_standard_deviation(arr1,arr2,size),4)))
+function get_excess(arr1, arr2, size,set) {
+    return ((size*(size+1)*get_central_moments(arr1,arr2,size,4,set) - 3 *  get_central_moments(arr1,arr2,size,2,set)*(size-1))/( (size-1)*(size-2)*(size-3)*Math.pow(get_sample_standard_deviation(arr1,arr2,size),4)))
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
