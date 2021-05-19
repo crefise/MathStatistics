@@ -7,37 +7,31 @@ function task05 (VariesNear) {
 
         let res_1 = get_standard_deviation(VariesNear[i][0],VariesNear[i][1], VariesNear[i][5], 0.95);
         let res_2 = get_interval_expected_value(VariesNear[i][0],VariesNear[i][1], VariesNear[i][5], 0.95);
-        create_html_element("Expected Value (Central interval): " +res_1[0], "div", "task_05_result", "task_05", "id");
-        create_html_element("Expected Value (Lower interval): " + res_1[1], "div", "task_05_result", "task_05", "id");
-        create_html_element("Expected Value (Upper interval): " + res_1[2], "div", "task_05_result", "task_05", "id");
+        create_html_element("Expected Value (Lower interval): " + res_1[0], "div", "task_05_result", "task_05", "id");
+        create_html_element("Expected Value (Upper interval): " + res_1[1], "div", "task_05_result", "task_05", "id");
 
-        create_html_element("Standard deviation (Central interval): " +res_2[0], "div", "task_05_result", "task_05", "id");
-        create_html_element("Standard deviation (Lower interval): " + res_2[1], "div", "task_05_result", "task_05", "id");
-        create_html_element("Standard deviation (Upper interval): " + res_2[2], "div", "task_05_result", "task_05", "id");
+        create_html_element("Standard deviation (Lower interval): " + res_2[0], "div", "task_05_result", "task_05", "id");
+        create_html_element("Standard deviation (Upper interval): " + res_2[1], "div", "task_05_result", "task_05", "id");
     }
 }
 
 function get_interval_expected_value (arr1,arr2,size,p) {
-    const x = get_sample_average(arr1,arr2,size);
-    const z = get_zScore(p)
-    const s = Math.sqrt(get_corrected_selective_variance(arr1,arr2,size));
-
-    const upper = x - z * s / Math.sqrt(size)
-    const lower = x + z * s / Math.sqrt(size)
-
-    return [x, upper, lower]
+    let avarage = get_sample_average(arr1,arr2,size);
+    let z = get_zScore(p)
+    let variance = Math.sqrt(get_corrected_selective_variance(arr1,arr2,size));
+    let up = avarage - z * variance / Math.sqrt(size);
+    let down = avarage + z * variance / Math.sqrt(size);
+    return [up, down]
 }
 
 
 function get_standard_deviation (arr1,arr2,size, p) {
-    let x = get_sample_average(arr1,arr2,size);
-    const z = get_zScore(p)
-    const s = Math.sqrt(get_corrected_selective_variance(arr1,arr2,size));
+    let z = get_zScore(p)
+    let variance = Math.sqrt(get_corrected_selective_variance(arr1,arr2,size));
 
-    const upper = x - z * s / Math.sqrt(size);
-    const lower = x + z * s / Math.sqrt(size);
-
-    return [x, upper, lower];
+    let up = variance*(1-z);
+    let down = variance*(1+z);
+    return [up, down];
 }
 
 
