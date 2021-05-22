@@ -1,0 +1,62 @@
+* {
+	font-family: 'SFNS Display Bold';
+    margin: 5px;
+}
+
+@font-face {
+	font-family: 'SFNS Display Bold';
+	src: url('./fonts/sfns_display_bold.eot'); /* IE 9 Compatibility Mode */
+	src: url('./fonts/sfns_display_bold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('./fonts/sfns_display_bold.woff2') format('woff2'), /* Super Modern Browsers */
+		url('./fonts/sfns_display_bold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('./fonts/sfns_display_bold.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('./fonts/sfns_display_bold.svg#sfns_display_bold') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+
+table {
+    font-size: 20px;
+    text-align: center;
+
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+}
+
+
+legend {
+    font-size: 50px;
+}
+#task_01 td {
+    border: 1px black solid;
+    padding: 5px;
+}
+
+canvas {
+    max-width: 1000px;
+    max-height: 600px;
+    min-width: 1000px;
+    min-height: 600px;
+
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+body {
+    text-align: center;
+}
+
+.gipotez {
+    font-size: 25px;
+    border: 1px black solid;
+    padding: 5px;
+}
+.info_task01 {
+    font-size: 25px;
+}
+.result_task01_result {
+    border: 1px black solid;
+    padding: 10px;
+    font-size: 25px;
+}
+.main_label {
+    font-size: 60px;
+}

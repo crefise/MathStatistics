@@ -44,7 +44,13 @@ function print_function(varies_near) {
         } else {
             str += "        ";
         }
-        str += varies_near[4][i] + ", " + varies_near[0][i-1] + " < x < " + varies_near[0][i] + "<br>";
+        if (i == varies_near[0].length-1) {
+            str += varies_near[4][i] + ", x => " + varies_near[0][i] + "<br>";
+        }
+        else {
+            str += varies_near[4][i] + ", " + varies_near[0][i-1] + " < x =< " + varies_near[0][i] + "<br>";
+        }
+
     }
     str += "</fieldset></pre>";
     create_html_element(str, "div" ,"function_result", "task_02" , "id");

@@ -11,7 +11,8 @@ function task01 (set) {
         VariesNear[i].push(set[i].length);
         VariesNear[i].push(set[i].slice());
         print_varies_near(VariesNear[i]);
-        
+        let str = "Range: [" + VariesNear[i][0][0] + "; " + VariesNear[i][0][VariesNear[i][0].length-1] + "]";
+        create_html_element(str, "div", "task01_result", "task_01", "id");
     }
 
    
