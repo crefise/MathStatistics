@@ -1,3 +1,7 @@
+let f_critical = 3.179;
+let crit_point_T = 1.734;
+let crit_point_first = 14.7;
+
 document.getElementById("set_size_task").onchange = () => {
     let set_count = document.getElementById("set_size_task").value;
     
@@ -101,7 +105,7 @@ document.getElementById("calculate_button").onclick = () => {
 
     VariesNear.set("freedom", VariesNear.get("repeat").length - 3);
     VariesNear.set("observed_value", get_observed_value(VariesNear));
-    VariesNear.set("critical_point", 14.1);
+    VariesNear.set("critical_point", crit_point_first);
     create_html_element("Power of freedom - " + VariesNear.get("freedom"), "div", "info_task01", "task_01", "id");
     create_html_element("Observed value P - " + VariesNear.get("observed_value"), "div", "info_task01", "task_01", "id");
     create_html_element("Critical point p - " + VariesNear.get("critical_point"), "div", "info_task01", "task_01", "id");
@@ -114,13 +118,13 @@ document.getElementById("calculate_button").onclick = () => {
         mode = true;
    }
 
-   create_html_element("Reuslt: " + mode, "div", "result_task01_result", "task_01", "id");
+   create_html_element("Result: " + mode, "div", "result_task01_result", "task_01", "id");
 
 
 
 
 
-   
+   //task_2
     let VariesNear_2 = get_varies_near_from_arr(get_user_data_from_table("data_other_task"));
     VariesNear_2.set("sample_average", get_sample_average(VariesNear_2.get("sample"), VariesNear_2.get("repeat"), VariesNear_2.get("size")));
     VariesNear_2.set("standard_deviation", get_sample_standard_deviation(
@@ -151,7 +155,7 @@ document.getElementById("calculate_button").onclick = () => {
     create_html_element("Variance(1) - " + VariesNear.get("variance"), "div", "info_task01", "task_02", "id");
     create_html_element("Variance(2) - " + VariesNear_2.get("variance"), "div", "info_task01", "task_02", "id");
 
-
+    
     let F;
     if ( VariesNear.get("variance") >  VariesNear_2.get("variance") ) {
         F =  VariesNear.get("variance")  /  VariesNear_2.get("variance");
@@ -160,18 +164,39 @@ document.getElementById("calculate_button").onclick = () => {
     }
 
     create_html_element("Observed value F - " + F, "div", "info_task01", "task_02", "id");
-    create_html_element("Critical point f - 3.179" + F, "div", "info_task01", "task_02", "id");
+    create_html_element("Critical point f - " + f_critical, "div", "info_task01", "task_02", "id");
 
 
-    if (F > 3.179) {
+    if (F > f_critical) {
         mode = false;
    }
    else {
         mode = true;
    }
 
-   create_html_element("Reuslt: " + mode, "div", "result_task01_result", "task_02", "id");
+   create_html_element("Result: " + mode, "div", "result_task01_result", "task_02", "id");
 
+
+
+
+
+   // task_3 
+   create_html_element("H0: Assume that M(X)=M(Y)", "div", "gipotez", "task_03", "id");
+   let obs_val_T = (VariesNear_2.get("sample_average") - VariesNear.get("sample_average"))/Math.sqrt((VariesNear.get("size") - 1)*VariesNear.get("variance") + (VariesNear_2.get("size") - 1)*VariesNear_2.get("variance"));
+   console.log("dd"+ obs_val_T);
+    obs_val_T = obs_val_T * Math.sqrt((VariesNear.get("size")*VariesNear_2.get("size")*(VariesNear.get("size") + VariesNear_2.get("size") - 2))/(VariesNear.get("size") + VariesNear_2.get("size")))
+    console.log("dd"+ obs_val_T);
+
+   create_html_element("Observed value T - " + obs_val_T, "div", "info_task01", "task_03", "id");
+   create_html_element("Critical point T - " + crit_point_T, "div", "info_task01", "task_03", "id");
+
+   if (obs_val_T > crit_point_T) {
+        mode = false;
+    }
+    else {
+        mode = true;
+    }
+    create_html_element("Result: " + mode, "div", "result_task01_result", "task_03", "id");
 }
 
 

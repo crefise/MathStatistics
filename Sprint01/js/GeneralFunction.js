@@ -1,5 +1,5 @@
 let let_arr = ["A", "B", "C", "D", "E"]; // later for  set name
-
+let charts = [];
 
 
 function remove_elemelts_with_class(class_name) {
