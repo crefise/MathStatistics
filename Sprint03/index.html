@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint03</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class = "main_label">Sprint 3</h1>
+
+
+    <fieldset id = "input_box">
+        <legend>Input data</legend>
+        <table border = "1px">
+            <tr>
+                <td rowspan="2">
+                    B factor
+                </td>
+                    
+                <td colspan="3">
+                    A factor
+                </td>
+            </tr>
+
+            <tr>
+                <td>A1</td>
+                <td>A2</td>
+                <td>A3</td>
+            </tr>
+
+            <tr>
+                <td>
+                    B1
+                </td>
+                <td >
+                    <textarea class = "data"></textarea>
+                </td>
+                <td >
+                    <textarea class = "data"></textarea>
+                </td>
+                <td >
+                    <textarea class = "data"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    B2
+                </td>
+                <td >
+                    <textarea class = "data"></textarea>
+                </td>
+                <td >
+                    <textarea class = "data"></textarea>
+                </td>
+                <td >
+                    <textarea class = "data"></textarea>
+                </td>
+            </tr>
+
+        </table>
+
+        <div class = "button_div">
+            <button id = "set_default">Set default</button>
+            <button id = "calculate">Calculate</button>
+        </div>
+
+    </fieldset>
+
+    <fieldset id = "result_html">
+        <legend >Result</legend>
+
+        <table border="1px">
+            <tr> 
+                <td colspan="2" rowspan="3"> B factor</td>
+                <td colspan="6"> A factor</td>
+                <td rowspan="3">Rows mean</td>
+                <td rowspan="3">General mean</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">A1</td>
+                <td colspan="2">A2</td>
+                <td colspan="2">A3</td>
+            </tr>
+
+            <tr>
+                <td>Block 1</td>
+                <td>Block mean</td>
+                <td>Block 2</td>
+                <td>Block mean</td>
+                <td>Block 3</td>
+                <td>Block mean</td>
+            </tr>
+
+            <tr>
+                <td>B1</td>
+                <td>Block 1</td>
+                <td><textarea id = "B1A1_result_table"></textarea></td>
+                <td class = "block_mean">INFO</td>
+                <td><textarea id = "B1A2_result_table"></textarea></td>
+                <td class = "block_mean">INFO</td>
+                <td><textarea id = "B1A3_result_table"></textarea></td>
+                <td class = "block_mean">INFO</td>
+                <td class = "rows_mean">INFO</td>
+                <td rowspan="2" class = "general_mean"></td>
+            </tr>
+
+            <tr>
+                <td>B2</td>
+                <td>Block 2</td>
+                <td><textarea id = "B2A1_result_table"></textarea></td>
+                <td class = "block_mean">INFO</td>
+                <td><textarea id = "B2A2_result_table"></textarea></td>
+                <td class = "block_mean">INFO</td>
+                <td><textarea id = "B2A3_result_table"></textarea></td>
+                <td class = "block_mean">INFO</td>
+                <td class = "rows_mean">INFO</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">Columns mean</td>
+                <td colspan="2" class = "columns_mean">INFO</td>
+                <td colspan="2" class = "columns_mean">INFO</td>
+                <td colspan="2" class = "columns_mean">INFO</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+
+        <table border="1px">
+            <tr>
+                <td>Resource of scattering</td>
+                <td>Sum of square means</td>
+                <td>Degree of freedom</td>
+                <td>Statistical variation</td>
+            </tr>
+
+            <tr>
+                <td>A factor</td>
+                <td class = "sum_of_square_means">INFO</td>
+                <td class = "degree_of_freedom">INFO</td>
+                <td class = "general_variation">INFO</td>
+            </tr>
+
+            <tr>
+                <td>B factor</td>
+                <td class = "sum_of_square_means">INFO</td>
+                <td class = "degree_of_freedom">INFO</td>
+                <td class = "general_variation">INFO</td>
+            </tr>
+
+            <tr>
+                <td>A and B factors</td>
+                <td class = "sum_of_square_means">INFO</td>
+                <td class = "degree_of_freedom">INFO</td>
+                <td class = "general_variation">INFO</td>
+            </tr>
+
+            <tr>
+                <td>Random factors</td>
+                <td class = "sum_of_square_means">INFO</td>
+                <td class = "degree_of_freedom">INFO</td>
+                <td class = "general_variation">INFO</td>
+            </tr>
+
+            <tr>
+                <td>General variation</td>
+                <td class = "sum_of_square_means">INFO</td>
+                <td class = "degree_of_freedom">INFO</td>
+                <td class = "general_variation">INFO</td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <script src="js/GeneralFunction.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
